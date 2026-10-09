@@ -34,15 +34,19 @@ export const Navbar: React.FC = () => {
 
       {/* Main Navigation Bar */}
       <div className="w-full px-4 sm:px-6 lg:px-10">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 sm:h-20 gap-2">
           {/* Logo & Tagline */}
-          <Link to="/" className="flex items-center space-x-3 group">
-
-            <div>
-              <div className="text-xl sm:text-2xl font-bold font-serif text-brand-navy tracking-tight leading-none">
+          <Link to="/" className="flex items-center space-x-2 sm:space-x-3 group shrink min-w-0">
+            <img
+              src="/logo.png"
+              alt="Bridge Of Love Logo"
+              className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl object-cover shadow-sm group-hover:scale-105 transition border border-brand-coral/20 shrink-0"
+            />
+            <div className="min-w-0">
+              <div className="text-base sm:text-xl lg:text-2xl font-bold font-serif text-brand-navy tracking-tight leading-none whitespace-nowrap">
                 Bridge Of Love
               </div>
-              <div className="text-[10px] sm:text-[11px] font-medium text-slate-500 tracking-wider uppercase mt-1">
+              <div className="text-[9px] sm:text-[11px] font-medium text-slate-500 tracking-wider uppercase mt-0.5 sm:mt-1 whitespace-nowrap">
                 Charitable Trust
               </div>
             </div>
@@ -145,18 +149,19 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex lg:hidden items-center space-x-2">
+          <div className="flex lg:hidden items-center space-x-1.5 sm:space-x-2 shrink-0">
             <button
               onClick={() => openDonationModal()}
-              className="py-1.5 px-3 rounded-lg bg-brand-coral text-white text-xs font-bold shadow transition"
+              className="py-1 px-2.5 sm:py-1.5 sm:px-3 rounded-lg bg-brand-coral hover:bg-brand-coralHover text-white text-[11px] sm:text-xs font-bold shadow transition shrink-0 whitespace-nowrap"
             >
               Donate
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition"
+              className="p-1.5 sm:p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition shrink-0"
+              aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
             </button>
           </div>
         </div>
