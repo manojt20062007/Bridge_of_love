@@ -54,9 +54,11 @@ export const MemberLayout: React.FC = () => {
       <aside className="hidden md:flex flex-col w-64 bg-brand-navy text-slate-300 border-r border-slate-800 shrink-0 select-none">
         {/* Brand Header */}
         <div className="p-6 border-b border-slate-800 flex items-center space-x-3">
-          <div className="w-9 h-9 rounded-xl bg-brand-coral/20 flex items-center justify-center text-brand-coral border border-brand-coral/40">
-            <Heart className="w-5 h-5 fill-current" />
-          </div>
+          <img
+            src="/logo.png"
+            alt="Bridge Of Love Logo"
+            className="w-9 h-9 rounded-lg object-cover shadow border border-white/20"
+          />
           <div>
             <h1 className="text-base font-serif font-bold text-white leading-tight">Bridge Of Love</h1>
             <p className="text-[10px] text-slate-400 uppercase tracking-wider font-semibold">Member Portal</p>
@@ -83,11 +85,10 @@ export const MemberLayout: React.FC = () => {
               <Link
                 key={item.path}
                 to={item.path}
-                className={`flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-xs font-medium transition ${
-                  active
+                className={`flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-xs font-medium transition ${active
                     ? 'bg-brand-coral text-white font-bold shadow-sm'
                     : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
-                }`}
+                  }`}
               >
                 <Icon className={`w-4 h-4 ${active ? 'text-white' : 'text-slate-400'}`} />
                 <span>{item.label}</span>
