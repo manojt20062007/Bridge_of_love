@@ -84,11 +84,11 @@ graph TD
    - **Runtime:** `Node`
    - **Build Command:**
      ```bash
-     npm install && npm run build --workspace=@bridge-of-love/shared-types && npm run build --workspace=@bridge-of-love/ui-components && npm run build --workspace=@bridge-of-love/validation && npm run build --workspace=@bridge-of-love/api-server
+     npm install && npm run build:api
      ```
    - **Start Command:**
      ```bash
-     npx prisma db push --schema=apps/api-server/prisma/schema.prisma && node apps/api-server/dist/index.js
+     npm run start:api
      ```
    - **Instance Type:** `Free`
 
