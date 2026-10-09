@@ -22,6 +22,10 @@
     "prisma:migrate": "npm run prisma:migrate --workspace=apps/api-server",
     "prisma:seed": "npm run prisma:seed --workspace=apps/api-server"
   },
+  "dependencies": {
+    "typescript": "^5.5.4",
+    "@types/node": "^22.5.4"
+  },
   "keywords": [
     "charity",
     "trust-management",

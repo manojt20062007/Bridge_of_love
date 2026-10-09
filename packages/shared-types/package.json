@@ -7,7 +7,7 @@
     "build": "node -e \"require('child_process').execSync('tsc -p tsconfig.json', {stdio: 'inherit'})\"",
     "dev": "tsc -w"
   },
-  "devDependencies": {
+  "dependencies": {
     "typescript": "^5.5.4"
   }
 }
