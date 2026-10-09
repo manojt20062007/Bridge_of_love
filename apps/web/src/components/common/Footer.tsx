@@ -38,9 +38,11 @@ export const Footer: React.FC = () => {
         {/* Col 1: Brand & Tagline */}
         <div className="space-y-4">
           <div className="flex items-center space-x-2.5">
-            <div className="w-9 h-9 rounded-lg bg-brand-coral/20 flex items-center justify-center text-brand-coral border border-brand-coral/40">
-              <Heart className="w-5 h-5 fill-current" />
-            </div>
+            <img
+              src="/logo.png"
+              alt="Bridge Of Love Logo"
+              className="w-9 h-9 rounded-lg object-cover shadow border border-white/20"
+            />
             <span className="text-xl font-bold font-serif text-white tracking-tight">Bridge Of Love</span>
           </div>
           <p className="text-slate-400 leading-relaxed">
