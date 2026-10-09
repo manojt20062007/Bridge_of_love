@@ -8,8 +8,8 @@
     "apps/*"
   ],
   "scripts": {
-    "build": "npm run build:api",
-    "bunpm": "npm run build:api",
+    "build": "node -e \"require('child_process').execSync('npm run build:api', {stdio: 'inherit'})\"",
+    "bunpm": "node -e \"require('child_process').execSync('npm run build:api', {stdio: 'inherit'})\"",
     "start": "npm run start:api",
     "build:api": "npm run build --workspace=@bridge-of-love/shared-types && npm run build --workspace=@bridge-of-love/ui-components && npm run build --workspace=@bridge-of-love/validation && npm run build --workspace=@bridge-of-love/api-server",
     "start:api": "npx prisma db push --schema=apps/api-server/prisma/schema.prisma && node apps/api-server/dist/index.js",
