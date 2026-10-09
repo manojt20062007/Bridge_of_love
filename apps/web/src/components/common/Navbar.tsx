@@ -30,32 +30,14 @@ export const Navbar: React.FC = () => {
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all">
       {/* Top Statutory Strip */}
-      <div className="bg-brand-navy text-white text-[11px] py-1.5 px-4 hidden sm:block border-b border-white/10">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <span className="text-brand-coral font-bold flex items-center">
-              <Shield className="w-3 h-3 mr-1 inline" /> 80G Tax Exemption Available
-            </span>
-            <span className="text-slate-400">|</span>
-            <span className="text-slate-300">Govt Reg: BOL/TN/2021/004921</span>
-            <span className="text-slate-400">|</span>
-            <span className="text-slate-300">PAN: AAATB1234F</span>
-          </div>
-          <div className="flex items-center space-x-4 text-slate-300">
-            <span>Call: +91 94441 23456</span>
-            <span>Email: contact@bridgeoflove.org</span>
-          </div>
-        </div>
-      </div>
+
 
       {/* Main Navigation Bar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-6 lg:px-10">
         <div className="flex items-center justify-between h-20">
           {/* Logo & Tagline */}
           <Link to="/" className="flex items-center space-x-3 group">
-            <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-navy to-brand-navyLight flex items-center justify-center text-white shadow-md border border-brand-navy/10 group-hover:scale-105 transition">
-              <Heart className="w-6 h-6 text-brand-coral fill-current animate-pulse" />
-            </div>
+
             <div>
               <div className="text-xl sm:text-2xl font-bold font-serif text-brand-navy tracking-tight leading-none">
                 Bridge Of Love
@@ -72,11 +54,10 @@ export const Navbar: React.FC = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-3 py-2 rounded-lg text-xs font-semibold tracking-wide transition ${
-                  isActive(link.path)
-                    ? 'text-brand-coral bg-brand-coralLight/60 font-bold'
-                    : 'text-slate-700 hover:text-brand-navy hover:bg-slate-100/80'
-                }`}
+                className={`px-3 py-2 rounded-lg text-xs font-semibold tracking-wide whitespace-nowrap transition ${isActive(link.path)
+                  ? 'text-brand-coral bg-brand-coralLight/60 font-bold'
+                  : 'text-slate-700 hover:text-brand-navy hover:bg-slate-100/80'
+                  }`}
               >
                 {link.label}
               </Link>
@@ -146,7 +127,7 @@ export const Navbar: React.FC = () => {
                 </Link>
                 <Link
                   to="/register"
-                  className="px-3.5 py-2 text-xs font-semibold text-brand-navy bg-slate-100 hover:bg-slate-200 rounded-lg transition"
+                  className="px-3.5 py-2 text-xs font-semibold text-brand-navy bg-slate-100 hover:bg-slate-200 rounded-lg whitespace-nowrap transition"
                 >
                   Become a Member
                 </Link>
@@ -156,7 +137,7 @@ export const Navbar: React.FC = () => {
             {/* Donate Now Primary Button */}
             <button
               onClick={() => openDonationModal()}
-              className="py-2.5 px-4 rounded-xl bg-brand-coral hover:bg-brand-coralHover text-white text-xs font-bold shadow-md hover:shadow-lg transition flex items-center space-x-1.5"
+              className="py-2.5 px-4 rounded-xl bg-brand-coral hover:bg-brand-coralHover text-white text-xs font-bold shadow-md hover:shadow-lg transition flex items-center space-x-1.5 whitespace-nowrap flex-shrink-0"
             >
               <Heart className="w-4 h-4 fill-current" />
               <span>Donate Now</span>
@@ -189,11 +170,10 @@ export const Navbar: React.FC = () => {
               key={link.path}
               to={link.path}
               onClick={() => setMobileMenuOpen(false)}
-              className={`block px-3 py-2 rounded-lg text-sm font-semibold transition ${
-                isActive(link.path)
-                  ? 'text-brand-coral bg-brand-coralLight/60 font-bold'
-                  : 'text-slate-700 hover:bg-slate-50'
-              }`}
+              className={`block px-3 py-2 rounded-lg text-sm font-semibold transition ${isActive(link.path)
+                ? 'text-brand-coral bg-brand-coralLight/60 font-bold'
+                : 'text-slate-700 hover:bg-slate-50'
+                }`}
             >
               {link.label}
             </Link>

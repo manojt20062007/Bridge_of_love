@@ -7,7 +7,7 @@ export const Footer: React.FC = () => {
     <footer className="bg-brand-navy text-slate-300 border-t border-slate-800">
       {/* Top Editorial Banner */}
       <div className="bg-brand-navyDark py-12 px-4 sm:px-6 lg:px-8 border-b border-white/5">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="w-full flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center md:text-left">
             <h3 className="text-2xl font-serif font-bold text-white tracking-wide">
               Every Contribution Directly Bridges a Life in Need
@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
       </div>
 
       {/* Main Footer Links & Info */}
-      <div className="max-w-7xl mx-auto py-14 px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-xs">
+      <div className="w-full py-14 px-6 sm:px-10 lg:px-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-xs">
         {/* Col 1: Brand & Tagline */}
         <div className="space-y-4">
           <div className="flex items-center space-x-2.5">
@@ -144,7 +144,7 @@ export const Footer: React.FC = () => {
 
       {/* Bottom Legal Copyright */}
       <div className="border-t border-slate-800/80 py-6 px-4 text-center text-[11px] text-slate-500">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="w-full px-6 sm:px-10 lg:px-16 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p>© {new Date().getFullYear()} Bridge Of Love Charitable Trust. All rights reserved.</p>
           <p>
             Donations are deductible under Section 80G of the Indian Income Tax Act. Computer-generated receipts carry digital verification codes.
