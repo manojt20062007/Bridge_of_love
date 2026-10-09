@@ -1,0 +1,11 @@
+{
+  "framework": "vite",
+  "buildCommand": "npm run build --workspace=@bridge-of-love/shared-types && npm run build --workspace=@bridge-of-love/ui-components && npm run build --workspace=@bridge-of-love/validation && vite build",
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

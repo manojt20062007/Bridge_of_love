@@ -1,0 +1,33 @@
+services:
+  # ----------------------------------------------------
+  # Bridge Of Love — Node.js Express API Server (Free Tier)
+  # ----------------------------------------------------
+  - type: web
+    name: bridge-of-love-api
+    env: node
+    plan: free
+    region: singapore # or oregon / frankfurt
+    buildCommand: npm install && npm run build --workspace=@bridge-of-love/shared-types && npm run build --workspace=@bridge-of-love/ui-components && npm run build --workspace=@bridge-of-love/validation && npm run build --workspace=@bridge-of-love/api-server
+    startCommand: npx prisma db push --schema=apps/api-server/prisma/schema.prisma && node apps/api-server/dist/index.js
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: DATABASE_URL
+        sync: false # Set to your free Neon.tech connection string
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: CORS_ORIGIN
+        sync: false # Set to your Vercel URL, e.g., https://bridge-of-love.vercel.app
+      - key: APP_URL
+        sync: false # Set to your Vercel URL
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+      - key: TRUST_NAME
+        value: "Bridge Of Love Charitable Trust"

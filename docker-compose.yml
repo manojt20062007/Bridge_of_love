@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: bridge_of_love_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: bridge_of_love
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d bridge_of_love"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api-server:
+    build:
+      context: .
+      dockerfile: apps/api-server/Dockerfile
+    container_name: bridge_of_love_api
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      DATABASE_URL: postgresql://postgres:admin@postgres:5432/bridge_of_love?schema=public
+      JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET:-bridge_of_love_access_secret_production_ready_token_2026}
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-bridge_of_love_refresh_secret_production_ready_token_2026}
+      CORS_ORIGIN: http://localhost:5173,http://localhost:3000
+      RAZORPAY_KEY_ID: ${RAZORPAY_KEY_ID}
+      RAZORPAY_KEY_SECRET: ${RAZORPAY_KEY_SECRET}
+    ports:
+      - "5000:5000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+    container_name: bridge_of_love_web
+    restart: unless-stopped
+    ports:
+      - "5173:80"
+    depends_on:
+      - api-server
+
+volumes:
+  pgdata:
+    driver: local

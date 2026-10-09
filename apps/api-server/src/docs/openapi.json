@@ -1,0 +1,127 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Bridge Of Love — Charitable Trust API",
+    "version": "1.0.0",
+    "description": "Production-ready REST API for Bridge Of Love Charitable Trust managing members, online 80G donations, Razorpay payments, double-entry financial ledgers, and expense approvals."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000/api/v1",
+      "description": "Local Development Server"
+    }
+  ],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "summary": "Register a new member patron",
+        "tags": ["Authentication"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["fullName", "email", "mobile", "password", "confirmPassword", "acceptTerms"],
+                "properties": {
+                  "fullName": { "type": "string" },
+                  "email": { "type": "string" },
+                  "mobile": { "type": "string", "example": "9840123456" },
+                  "password": { "type": "string" },
+                  "confirmPassword": { "type": "string" },
+                  "panNumber": { "type": "string", "example": "ABCDE1234F" },
+                  "acceptTerms": { "type": "boolean" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Member registered and tokens issued" }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Authenticate user and issue tokens",
+        "tags": ["Authentication"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["email", "password"],
+                "properties": {
+                  "email": { "type": "string" },
+                  "password": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": { "description": "Authenticated successfully" }
+        }
+      }
+    },
+    "/donations/create-order": {
+      "post": {
+        "summary": "Initiate donation and create Razorpay payment order",
+        "tags": ["Donations"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["amount", "donorName", "donorEmail", "donorMobile"],
+                "properties": {
+                  "amount": { "type": "number", "example": 2500 },
+                  "donorName": { "type": "string" },
+                  "donorEmail": { "type": "string" },
+                  "donorMobile": { "type": "string" },
+                  "donorPan": { "type": "string" },
+                  "campaignId": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Order created" }
+        }
+      }
+    },
+    "/donations/verify-payment": {
+      "post": {
+        "summary": "Verify payment cryptographic signature and issue 80G receipt",
+        "tags": ["Donations"],
+        "responses": {
+          "200": { "description": "Payment verified and receipt issued" }
+        }
+      }
+    },
+    "/donations/public/verify-receipt/{receiptNumber}": {
+      "get": {
+        "summary": "Public verification endpoint for QR code scans (masked PII)",
+        "tags": ["Donations"],
+        "parameters": [
+          { "name": "receiptNumber", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Public verification details" }
+        }
+      }
+    },
+    "/transparency/summary": {
+      "get": {
+        "summary": "Get live transparent verified financial summary",
+        "tags": ["Transparency"],
+        "responses": {
+          "200": { "description": "Summary returned" }
+        }
+      }
+    }
+  }
+}
