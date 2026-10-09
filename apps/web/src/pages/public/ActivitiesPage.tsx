@@ -16,7 +16,7 @@ export const ActivitiesPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="py-12 sm:py-20 space-y-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="py-12 sm:py-20 space-y-12 w-full px-6 sm:px-10 lg:px-16">
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <span className="text-xs font-bold uppercase tracking-widest text-brand-coral">Field Dispatches</span>

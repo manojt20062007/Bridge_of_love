@@ -24,23 +24,20 @@ export const HomePage: React.FC = () => {
   const [transparency, setTransparency] = useState<any>(null);
 
   useEffect(() => {
-    api.get<any[]>('/campaigns?featured=true').then(setCampaigns).catch(() => {});
-    api.get<any[]>('/content/activities').then((acts) => setActivities((acts || []).slice(0, 3))).catch(() => {});
-    api.get<any>('/transparency/summary').then(setTransparency).catch(() => {});
+    api.get<any[]>('/campaigns?featured=true').then(setCampaigns).catch(() => { });
+    api.get<any[]>('/content/activities').then((acts) => setActivities((acts || []).slice(0, 3))).catch(() => { });
+    api.get<any>('/transparency/summary').then(setTransparency).catch(() => { });
   }, []);
 
   return (
     <div className="space-y-16 sm:space-y-24">
       {/* 1. CINEMATIC EDITORIAL HERO */}
       <section className="relative bg-brand-cream border-b border-slate-200/60 overflow-hidden pt-8 pb-16 sm:pt-16 sm:pb-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-6 sm:px-10 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center space-x-2 bg-brand-coralLight border border-brand-coral/20 px-3.5 py-1.5 rounded-full text-brand-coral text-xs font-bold tracking-wide">
-                <span className="w-2 h-2 rounded-full bg-brand-coral animate-ping"></span>
-                <span>Government Registered Trust | 80G Tax Exemption Available</span>
-              </div>
+
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-brand-navy leading-[1.15] tracking-tight">
                 Connecting compassionate hearts with{' '}
@@ -125,7 +122,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 2. STATUTORY IMPACT STRIP */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="w-full px-6 sm:px-10 lg:px-16">
         <div className="bg-brand-navy rounded-3xl p-8 sm:p-12 text-white shadow-xl">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-y sm:divide-y-0 sm:divide-x divide-white/10 text-center">
             <div className="pt-4 sm:pt-0">
@@ -156,7 +153,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 3. CORE SERVICE VERTICALS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <section className="w-full px-6 sm:px-10 lg:px-16 space-y-10">
         <div className="text-center max-w-2xl mx-auto space-y-3">
           <h2 className="text-xs font-bold uppercase tracking-widest text-brand-coral">Areas of Service</h2>
           <h3 className="text-3xl sm:text-4xl font-serif font-bold text-brand-navy">
@@ -223,7 +220,7 @@ export const HomePage: React.FC = () => {
 
       {/* 4. CURRENT ACTIVE CAUSES */}
       <section className="bg-slate-50 py-16 sm:py-24 border-y border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="w-full px-6 sm:px-10 lg:px-16 space-y-12">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div className="space-y-2">
               <span className="text-xs font-bold uppercase tracking-widest text-brand-coral">Current Urgent Causes</span>
@@ -309,7 +306,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 5. EDITORIAL STORY SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="w-full px-6 sm:px-10 lg:px-16">
         <div className="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12">
             <div className="lg:col-span-5 relative bg-slate-100 min-h-[340px]">
@@ -351,7 +348,7 @@ export const HomePage: React.FC = () => {
 
       {/* 6. TRANSPARENCY PREVIEW */}
       <section className="bg-brand-navy text-white py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div className="w-full px-6 sm:px-10 lg:px-16 space-y-12">
           <div className="max-w-2xl space-y-3">
             <span className="text-xs font-bold uppercase tracking-widest text-brand-gold">Radical Accountability</span>
             <h3 className="text-3xl sm:text-4xl font-serif font-bold">100% Transparent Financial Accounting</h3>
@@ -399,7 +396,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 7. RECENT ACTIVITIES & DISPATCHES */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <section className="w-full px-6 sm:px-10 lg:px-16 space-y-10">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div className="space-y-2">
             <span className="text-xs font-bold uppercase tracking-widest text-brand-coral">On the Ground</span>
@@ -442,7 +439,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* 8. VOLUNTEER & MEMBERSHIP INVITATION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+      <section className="w-full px-6 sm:px-10 lg:px-16 pb-12">
         <div className="bg-gradient-to-r from-brand-navy to-brand-navyLight rounded-3xl p-8 sm:p-14 text-white text-center space-y-6 shadow-xl relative overflow-hidden">
           <div className="max-w-2xl mx-auto space-y-3">
             <span className="text-xs font-bold uppercase tracking-widest text-brand-coral">Community of Compassion</span>

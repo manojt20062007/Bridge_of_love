@@ -50,7 +50,7 @@ export const CampaignDetailPage: React.FC = () => {
   const percent = Math.min(100, Math.round((raised / target) * 100));
 
   return (
-    <div className="py-10 sm:py-16 space-y-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="py-10 sm:py-16 space-y-10 w-full px-6 sm:px-10 lg:px-16">
       {/* Breadcrumb */}
       <div>
         <Link
